@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <nav>
+            <a href="/add_candidate">Add candidates</a>
+            <a href="/vote_candidate">Votes</a>
+            <a href="/vote_result">Poll result</a>
+            <a href="/vote_summary">Voting Summary</a>
+          </nav>
+        <h1>Vote Result</h1>
+        {% for dict_item in sort_dict %}
+            {% for key, value in dict_item.items %}
+                <h1>{{key}} : {{value}}</h1>
+            {% endfor %}
+        {% endfor %}
+    </body>
+</html>

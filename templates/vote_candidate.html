@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <nav>
+            <a href="/add_candidate">Add candidates</a>
+            <a href="/vote_candidate">Votes</a>
+            <a href="/vote_result">Poll result</a>
+            <a href="/vote_summary">Voting Summary</a>
+          </nav>
+        <form method="POST" action="vote_candidate">
+            {% csrf_token %}
+            <p>{{msg}}</p>
+            <label>Student ID:</label><input type="text" required name='vname'>
+
+            {% for c in candidate %}
+                <br><br>
+                <input type="radio" name="candidate" value="{{c}}" >
+                <label>
+                    {{c}}
+                </label>
+            {% empty %}
+                <p style="color: red;">Sorry!! There are no events</p>
+            {% endfor %}
+             <br>   
+            <input type="submit" value="Vote">
+        </form>
+    </body>
+</html>

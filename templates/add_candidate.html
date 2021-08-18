@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <nav>
+            <a href="/add_candidate">Add candidates</a>
+            <a href="/vote_candidate">Votes</a>
+            <a href="/vote_result">Poll result</a>
+            <a href="/vote_summary">Voting Summary</a>
+          </nav>
+        <form method="POST" action="add_candidate">
+            {% csrf_token %}
+            <p>{{suc}}</p>
+            <p>{{err}}</p>
+            <label>Name:</label><input type="text" required name='cname'>
+            <input type="submit" value="Add">
+        </form>
+    </body>
+</html>
